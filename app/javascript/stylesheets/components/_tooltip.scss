@@ -1,0 +1,81 @@
+//Wrapper for the element truncating
+.tooltip-wrapper {
+  display: flex;
+  position: absolute;
+}
+
+//Positioning tooltip along with the wrapped element
+.tooltip-tip {
+  position: absolute;
+  border-radius: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px;
+  color: $tooltip-text-color;
+  background: $tooltip-background-color;
+  font-size: 14px;
+  font-family: sans-serif;
+  line-height: 1;
+  z-index: 100;
+  white-space: nowrap;
+  //Adding the tooltip arrow
+  &::before {
+    content: " ";
+    left: 50%;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-width: $tooltip-arrow-size;
+    margin-left: calc(#{$tooltip-arrow-size} * -1);
+  }
+  //Style if the tooltip is to be displayed at the top of the wrapped element
+  &.top {
+    top: calc(#{$tooltip-margin + 15px} * -1);
+    left: 50%;
+    // Adjusting the tooltip arrow for direction
+    &::before {
+      top: 100%;
+      border-top-color: $tooltip-background-color;
+    }
+  }
+  //Style if the tooltip is to be displayed at the right of the wrapped element
+  &.right {
+    left: calc(100% + #{$tooltip-margin});
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+    // Adjusting the tooltip arrow for direction
+    &::before {
+      left: calc(#{$tooltip-arrow-size} * -1);
+      top: 50%;
+      transform: translateX(0) translateY(-50%);
+      border-right-color: $tooltip-background-color;
+    }
+  }
+
+  //Style if the tooltip is to be displayed at the bottom of the wrapped element
+  &.bottom {
+    bottom: calc(#{$tooltip-margin} * -1);
+    // Adjusting the tooltip arrow for direction
+    &::before {
+      bottom: 100%;
+      border-bottom-color: $tooltip-background-color;
+    }
+  }
+  //Style if the tooltip is to be displayed at the left of the wrapped element
+  &.left {
+    left: auto;
+    right: calc(100% + #{$tooltip-margin});
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+    // Adjusting the tooltip arrow for direction
+    &::before {
+      left: auto;
+      right: calc(#{$tooltip-arrow-size} * -2);
+      top: 50%;
+      transform: translateX(0) translateY(-50%);
+      border-left-color: $tooltip-background-color;
+    }
+  }
+}
