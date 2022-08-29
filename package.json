@@ -5,13 +5,19 @@
     "no-console": "error"
   },
   "dependencies": {
+    "@babel/preset-react": "^7.18.6",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "5.4.0",
     "axios": "^0.27.2",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "js-logger": "^1.6.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "5.3.0",
+    "react_ujs": "^2.6.2",
     "tailwindcss": "1.9.6"
   },
   "version": "0.1.0",
