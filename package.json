@@ -1,4 +1,20 @@
 {
+  "lint-staged": {
+    "app/javascript/src/**/*.{js,jsx,json}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "{package.json,.eslintrc.js,.prettierrc.js}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "./**/*.rb": [
+      "bundle exec rubocop -a"
+    ],
+    "{Gemfile,Rakefile,config.ru}": [
+      "bundle exec rubocop -a"
+    ]
+  },
   "name": "granite",
   "private": true,
   "eslintConfig": {
@@ -22,7 +38,26 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "@babel/eslint-parser": "^7.18.9",
     "babel-plugin-js-logger": "^1.0.17",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-cypress": "^2.12.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jam3": "^0.2.3",
+    "eslint-plugin-json": "^3.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
     "webpack-dev-server": "3.11.2"
+  },
+  "scripts": {
+    "prepare": "husky install"
   }
 }

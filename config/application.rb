@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "boot"
 
 require "rails/all"
@@ -18,7 +20,7 @@ module Granite
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    
+
     # To avoid generating fixtures
     config.generators do |g|
       g.test_framework :test_unit, fixture: false

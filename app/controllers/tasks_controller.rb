@@ -1,6 +1,7 @@
-class TasksController < ApplicationController
+# frozen_string_literal: true
 
-    def index
-        @tasks = Task.all
-    end
+class TasksController < ApplicationController
+  def index
+    @tasks = Task.all
+  end
 end

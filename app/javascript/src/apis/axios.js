@@ -18,6 +18,6 @@ export const setAuthHeaders = (setLoading = () => null) => {
     axios.defaults.headers["X-Auth-Email"] = email;
     axios.defaults.headers["X-Auth-Token"] = token;
   }
-  
+
   setLoading(false);
 };
