@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def create
     task = Task.new(task_params)
     task.save!
-    respond_with_success("Task was successfully created")
+    respond_with_success(t("successfully_created"))
   end
 
   def show
@@ -20,7 +20,7 @@ class TasksController < ApplicationController
 
   def update
     @task.update!(task_params)
-    respond_with_success("Task was succesfully updated!")
+    respond_with_success(t("successfully_updated"))
   end
 
   private
