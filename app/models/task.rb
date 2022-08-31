@@ -7,7 +7,7 @@ class Task < ApplicationRecord
 
   validate :slug_not_changed
 
-  before_create :set_slug_optimised
+  before_create :set_slug
 
   private
 
