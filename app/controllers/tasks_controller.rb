@@ -15,9 +15,6 @@ class TasksController < ApplicationController
   private
 
     def task_params
-      puts params
-      puts params.require(:task)
-      puts params.require(:task).permit(:title)
       params.require(:task).permit(:title)
     end
 end
