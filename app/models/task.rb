@@ -2,6 +2,9 @@
 
 class Task < ApplicationRecord
   MAXIMUM_TITLE_LENGTH = 125
+
+  belongs_to :assigned_user, foreign_key: "assigned_user_id", class_name: "User"
+
   validates :title, { presence: true, length: { maximum: MAXIMUM_TITLE_LENGTH } }
   validates :slug, { uniqueness: true }
 
