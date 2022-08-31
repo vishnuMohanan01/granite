@@ -2259,6 +2259,11 @@ cliui@^5.0.0:
     strip-ansi "^5.2.0"
     wrap-ansi "^5.1.0"
 
+clsx@^1.1.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
+  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
+
 coa@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/coa/-/coa-2.0.2.tgz#43f6c21151b4ef2bf57187db0d73de229e3e7ec3"
@@ -6878,6 +6883,13 @@ react-router@5.2.1:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
+
+react-toastify@8.0.2:
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-8.0.2.tgz#11f73b3a847fcffeb47b1823e8974e9895f98fae"
+  integrity sha512-0Nud2d0VD4LIevgkB4L8NYoQ5plTpfqgj2CRVxs58SGA/TTO+2Ojz4C1bLUdGUWsw0zuWqd4GJqxNuMIv0cXMw==
+  dependencies:
+    clsx "^1.1.1"
 
 react@^18.2.0:
   version "18.2.0"
