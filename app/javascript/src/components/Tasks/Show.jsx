@@ -21,10 +21,10 @@ const Show = () => {
   const fetchTaskDetails = async () => {
     try {
       const {
-        data: { task, assigned_user },
+        data: { task },
       } = await tasksApi.show(slug);
       setTaskDetails(task);
-      setAssignedUser(assigned_user);
+      setAssignedUser(task.assigned_user);
     } catch (error) {
       logger.error(error);
     } finally {
