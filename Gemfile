@@ -57,3 +57,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # to bring react into rails
 gem "react-rails"
+
+# to hash passwords
+gem "bcrypt", "~> 3.1.13"
