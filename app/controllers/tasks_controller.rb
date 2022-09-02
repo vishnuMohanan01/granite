@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(task_params)
+    task = current_user.created_tasks.new(task_params)
     task.save!
     respond_with_success(t("successfully_created", entity: "Task"))
   end

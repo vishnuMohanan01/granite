@@ -56,6 +56,10 @@ const Show = () => {
         <span className="text-gray-600">Assigned To : </span>
         {assignedUser?.name}
       </h2>
+      <h2 className="text-md mb-3 pb-3 leading-5 text-bb-gray-600 text-opacity-50">
+        <span>Created By : </span>
+        {taskDetails?.task_owner?.name}
+      </h2>
     </Container>
   );
 };
