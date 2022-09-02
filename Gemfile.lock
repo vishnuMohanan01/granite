@@ -74,6 +74,7 @@ GEM
     concurrent-ruby (1.1.10)
     connection_pool (2.2.5)
     crass (1.0.6)
+    docile (1.4.0)
     erubi (1.11.0)
     execjs (2.8.1)
     ffi (1.15.5)
@@ -179,6 +180,12 @@ GEM
       sprockets-rails
       tilt
     semantic_range (3.0.0)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     spring (4.0.0)
     sprockets (4.1.1)
       concurrent-ruby (~> 1.0)
@@ -223,6 +230,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   sass-rails (>= 6)
+  simplecov
   spring
   sqlite3 (~> 1.4)
   tzinfo-data

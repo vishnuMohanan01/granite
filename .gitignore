@@ -125,3 +125,4 @@ dump.rdb
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+coverage

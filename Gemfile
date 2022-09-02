@@ -60,3 +60,6 @@ gem "react-rails"
 
 # to hash passwords
 gem "bcrypt", "~> 3.1.13"
+
+# for test coverage
+gem "simplecov", require: false, group: :test
