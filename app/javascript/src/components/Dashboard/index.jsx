@@ -6,6 +6,7 @@ import tasksApi from "apis/tasks";
 import Container from "components/Container";
 import PageLoader from "components/PageLoader";
 import Table from "components/Tasks/Table";
+// import { logger } from "@rails/actioncable";
 
 const Dashboard = ({ history }) => {
   const [tasks, setTasks] = useState([]);
