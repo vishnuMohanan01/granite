@@ -19,9 +19,8 @@ class TasksController < ApplicationController
   end
 
   def show
-    # respond_with_json({ task: @task, assigned_user: @task.assigned_user })
-    # render
     authorize @task
+    @comments = @task.comments.order("created_at DESC")
   end
 
   def update
