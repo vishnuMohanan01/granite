@@ -1,26 +1,52 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+  build:
+    #No. of servers/machines
+    parallelism: 1
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: cimg/ruby:3.0.2-node
+      - image: cimg/postgres:9.6
+        environment:
+          POSTGRES_HOST_AUTH_METHOD: trust
+
+    #application directory change it with your application directory name
+    working_directory: ~/granite
+    environment:
+      TZ: "/usr/share/zoneinfo/America/New_York"
+      RAILS_ENV: "test"
+      RACK_ENV: "test"
+
     steps:
       - checkout
+      - run: gem install bundler:2.2.20
+      #install sqlite dependency
+      - run: sudo apt update && sudo apt install zlib1g-dev libsqlite3-dev
+      # Bundle install
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+          bundle check --path=vendor/bundle || bundle install
+          --path=vendor/bundle --jobs=4 --retry=3
+      # Yarn install
+      - run:
+          chmod a+x ./bin/yarn && ./bin/yarn install --cache-folder
+          vendor/node_modules
+      # Ensure Rubocop has linted all Ruby files
+      - run: bundle exec rubocop
+      # Ensure Prettier+ESLint has been run on all JS files
+      - run:
+          npx prettier "./app/javascript/src/**/*.{js,jsx,json}" && npx eslint
+          "./app/javascript/src/**/*.{js,jsx,json}"
+      # Setup database
+      - run: cp config/database.yml.ci config/database.yml
+      - run: bundle exec rails db:create db:schema:load --trace
+      # Generate assets
+      - run: chmod a+x ./bin/webpack && ./bin/webpack
+      - run: bundle exec rails webpacker:compile
+      # Unit tests
+      - run:
+          shell: /bin/bash
+          command: bundle exec rake db:test:prepare && bundle exec rails t -v
 workflows:
-  say-hello-workflow:
+  version: 2
+  commit:
     jobs:
-      - say-hello
+      - build
