@@ -73,3 +73,6 @@ group :development, :test do
 end
 
 gem "pundit"
+
+# for sidekiq - task queueing
+gem "sidekiq"

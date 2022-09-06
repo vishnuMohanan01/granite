@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_06_045933) do
+ActiveRecord::Schema.define(version: 2022_09_06_134919) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2022_09_06_045933) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["task_id"], name: "index_comments_on_task_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "logs", force: :cascade do |t|
+    t.integer "task_id"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tasks", force: :cascade do |t|
