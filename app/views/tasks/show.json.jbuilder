@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.task do
   json.partial! "tasks/task", task: @task
 
