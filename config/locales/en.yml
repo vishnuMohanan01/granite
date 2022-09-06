@@ -39,6 +39,6 @@ en:
   task:
     slug:
       immutable: "is immutable!"
-    not_found: "Couldn't find Task"
+    not_found: "User not found"
   authorization:
     denied: "Access denied. You are not authorized to perform this action."
