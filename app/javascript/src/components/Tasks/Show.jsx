@@ -17,6 +17,15 @@ const Show = () => {
 
   const history = useHistory();
 
+  const destroyTask = async () => {
+    try {
+      await tasksApi.destroy({ slug: task.slug });
+      history.push("/");
+    } catch (error) {
+      logger.error(error);
+    }
+  };
+
   const updateTask = () => {
     history.push(`/tasks/${task.slug}/edit`);
   };
@@ -36,14 +45,13 @@ const Show = () => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    setLoading(true);
     try {
       await commentsApi.create({ content: newComment, task_id: task.id });
       fetchTaskDetails();
       setNewComment("");
+      setLoading(false);
     } catch (error) {
       logger.error(error);
-    } finally {
       setLoading(false);
     }
   };
@@ -63,6 +71,11 @@ const Show = () => {
           {task?.title}
         </h1>
         <div className="rounded mt-2 mb-4 bg-bb-env px-2">
+          <i
+            className="transition ri-delete-bin-5-line mr-2 text-center
+             text-2xl duration-300 ease-in-out hover:text-bb-red"
+            onClick={destroyTask}
+          />
           <i
             className="transition ri-edit-line text-center text-2xl
              duration-300 ease-in-out hover:text-bb-yellow"

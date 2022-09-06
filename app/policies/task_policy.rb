@@ -22,7 +22,7 @@ class TaskPolicy
 
   # Only owner is allowed to update a task.
   def update?
-    task.task_owner_id == user.id
+    show?
   end
 
   # Every user can create a task, hence create? will always returns true.
