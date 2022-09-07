@@ -26,6 +26,7 @@ class ActiveSupport::TestCase
 
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors) unless ENV["COVERAGE"]
+  Dir[Rails.root.join("test/support/**/*.rb")].each { |f| require f }
 
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   # fixtures :all
