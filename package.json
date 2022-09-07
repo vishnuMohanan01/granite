@@ -39,12 +39,12 @@
     "react-toastify": "8.0.2",
     "react_ujs": "^2.6.2",
     "remixicon": "^2.5.0",
-    "tailwindcss": "1.9.6"
+    "tailwindcss": "1.9.6",
+    "babel-plugin-js-logger": "^1.0.17"
   },
   "version": "0.1.0",
   "devDependencies": {
     "@babel/eslint-parser": "^7.18.9",
-    "babel-plugin-js-logger": "^1.0.17",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
