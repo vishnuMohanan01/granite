@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Authenticable
   extend ActiveSupport::Concern
 
@@ -18,3 +20,4 @@ module Authenticable
         respond_with_error(t("session.could_not_auth"), :unauthorized)
       end
     end
+end
