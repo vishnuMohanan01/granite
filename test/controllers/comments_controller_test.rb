@@ -26,6 +26,6 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     post comments_path, params: { comment: { content: "This is a comment", task_id: "" } }, headers: @headers
     assert_response :not_found
     response_json = response.parsed_body
-    assert_equal response_json["error"], t("task.not_found")
+    assert_equal response_json["error"], t("not_found", entity: "Task")
   end
 end

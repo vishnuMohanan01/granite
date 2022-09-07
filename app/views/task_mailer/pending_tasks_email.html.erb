@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Hi! <%= @receiver.name %></h1>
+    <p>Here is a list of your pending tasks for today.<br /></p>
+    <ul>
+      <% @tasks.each do |task| %>
+      <li><%= task.title %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>

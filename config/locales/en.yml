@@ -39,6 +39,14 @@ en:
   task:
     slug:
       immutable: "is immutable!"
-    not_found: "Couldn't find Task"
+  not_found: "Couldn't find %{entity}"
   authorization:
     denied: "Access denied. You are not authorized to perform this action."
+  preference:
+    notification_delivery_hour:
+      range: "value should be between 0 and 23"
+    mail:
+      notification_status: "Email notifications %{status}."
+  date:
+    invalid: "must be a valid date"
+    cant_be_in_past: "can't be in the past"
