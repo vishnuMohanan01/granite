@@ -84,3 +84,8 @@ gem "sidekiq-cron"
 gem "letter_opener", group: :development
 
 gem "pg", group: [:production]
+
+# PDF generation gem
+gem "wicked_pdf"
+# wicked_pdf uses the following binary
+gem "wkhtmltopdf-binary"

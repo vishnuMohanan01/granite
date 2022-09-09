@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   draw :sidekiq
 
   constraints(lambda { |req| req.format == :json }) do
-    resources :tasks, { except: %i(new edit), param: :slug }
+    resources :tasks, except: %i[new edit], param: :slug do
+      collection do
+        resource :report, only: %i[create], module: :tasks do
+          get :download, on: :collection
+        end
+      end
+    end
     resources :users, { only: %i(index create) }
     resource :session, { only: %i(create destroy) }
     resources :comments, { only: :create }

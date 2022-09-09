@@ -50,3 +50,4 @@ en:
   date:
     invalid: "must be a valid date"
     cant_be_in_past: "can't be in the past"
+  in_progress: "Download in Progress"

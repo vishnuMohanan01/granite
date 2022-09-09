@@ -4,6 +4,8 @@ class Task < ApplicationRecord
   MAXIMUM_TITLE_LENGTH = 125
   RESTRICTED_ATTRIBUTES = %i[title task_owner_id assigned_user_id]
 
+  scope :accessible_to, ->(user_id) { where("task_owner_id = ? OR assigned_user_id = ?", user_id, user_id) }
+
   enum progress: { pending: "pending", completed: "completed" }
   enum status: { starred: "starred", unstarred: "unstarred" }
 

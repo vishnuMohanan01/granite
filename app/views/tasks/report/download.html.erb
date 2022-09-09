@@ -1,0 +1,19 @@
+<div class="mb-4 font-bold">Your tasks:</div>
+<div class="p-4 mb-8 bg-white neeto-ui-shadow-s rounded">
+  <% @tasks.each do |task| %>
+  <div class="flexrow w-full mb-4">
+    <span>
+      <% if task.completed? %>
+      <input type="checkbox" checked />
+      <% else %>
+      <input type="checkbox" />
+      <% end %>
+    </span>
+    <div class="ml-4">
+      <div class="mb-1">
+        <div class="text-gray-500"><%= task.title %></div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
